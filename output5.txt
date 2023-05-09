@@ -1,0 +1,250 @@
+There is a war happening on the internet over the control of cryptographic capital
+ The participants are anonymous avatars on Twitter, the methods are obscure, and the stakes are billions of dollars
+ Welcome to the Curve Wars
+
+
+https://www
+convexfinance
+com
+
+TLDR
+
+Convex is a DeFi protocol built to maximize CRV holdings
+
+It does so by pooling Curve LP tokens and CRV together, and using it to increase future CRV earnings through veCRV boosting and gauge weight voting For users without sufficient veCRV to obtain a significant boost, it may be worth it to stake their Curve LP tokens with Convex
+
+
+CVX is a token used for rewards in Convex CVX can be vote-locked for 16 weeks to vote on how Convex will vote on Curve gauge weights
+
+cvxCRV is another token used for rewards in Convex CRV can be irreversibly converted to cvxCRV cvxCRV can be staked to receive further rewards
+
+The interdependence of CVX and cvxCRV makes them difficult to reason about
+
+But Convex has successfully captured ~47% of veCRV using this strategy
+
+A cheatsheet of the various tokens in the Curve/Convex ecosystem
+
+
+Recap
+
+In our last post, we explained how CRV and its counterpart, veCRV, are the scarce resources over which the Curve Wars are being fought
+ This naturally leads to the next question: how can one acquire as much CRV as possible?
+
+The obvious answer would be to buy it on the open market
+ After all, CRV is available on CEXes like Coinbase and DEXes like Uniswap
+ You might also provide liquidity to Curve pools that reward LPs with CRV
+ And to compound that effect, you could vote-lock your CRV for veCRV, boost your rewards, and vote on the gauge weights for those pools
+
+
+All of these approaches are restricted by the amount of capital that you personally have
+ Your limit is the amount of CRV in your wallet
+ Instead, what if you could aggregate the capital of many different people and deploy all of it? Then, your CRV acquisition power would be significantly larger
+ And if there was an entirely new DeFi protocol built on top of Curve designed to maximize the amount of CRV captured, that might be a good place to deploy that aggregated capital
+
+
+Convex
+
+This is what Convex Finance is as its core
+ It is a DeFi protocol that collects Curve-related assets from individuals, and deploys them in various ways to acquire more CRV
+ The name of the protocol invokes the image of a convex curve, which is defined by its increasingly “up-and-to-the-right” shape:
+
+A convex function
+
+
+The Convex ecosystem is byzantine, with complex interrelationships between its various components
+ These relationships can be self-referential and recursive, making them hard to untangle
+ Below, we outline each part, with a particular eye to what the cost and benefits are to both the user and Convex
+
+
+Curve LP Token Staking
+
+Suppose you are already an LP for a pool on CRV
+ That means you have that pool’s LP token in your wallet, and presumably, you’re earning some combination of trading fees + CRV rewards for providing liquidity
+ The amount of CRV you’re gaining will depend on the pool, the amount your LPing, how much CRV you’ve locked up for veCRV, and whether you’ve boosted the gauge for that pool
+
+
+One service that Convex offers is for users to convert their Curve LP tokens to Convex LP tokens, and then “stake” those converted LP tokens
+ Here, “staking” means locking up those converted LP tokens in a smart contract for a duration of your choice - you can “unstake” at any point to get your LP tokens back
+ Convex probably requires staking of these LP tokens to receive benefits so there is some hurdle to clear before you re-convert your Convex LP tokens for Curve LP tokens
+
+
+When you stake your converted Convex LP tokens, you receive the following benefits:
+
+The base Curve trading fees you would have gotten as a Curve LP
+ A portion of the CRV rewards you would have received if you were a fully boosted veCRV holder and CVX rewards
+ (More on CVX below
+)
+
+The MIM Curve pool
+
+
+Convex rewards for the MIM Curve pool
+
+
+1 is straightforward
+ This is no different than directly being a Curve LP
+
+
+2 is interesting
+ Again, the amount of CRV rewards you receive for being an LP depend on the pool, the number of LP tokens you have, the gauge weight, and the boost you get as a veCRV holder
+ The maximum boost is 2
+5x
+
+
+Because Convex Finance has a lot of veCRV, they can probably achieve the maximum boost on every pool
+ On the other hand, you may not have enough veCRV to achieve the maximum boost
+ Therefore, it would certainly be worth it for you to stake your LP tokens in Convex if your CRV rewards from staking LP tokens in Convex is greater than your CRV rewards from Curve after boosting with your veCRV
+
+
+In the MIM example above:
+
+Convex gives its MIM LP stakers 8
+09% APY via CRV rewards
+
+
+A maximally boosted Curve MIM LP would get 13
+59% APY via CRV rewards
+
+
+Thus, you should stake your LP tokens if your veCRV boost results in a less than 8
+09% APY in Curve rewards
+ Moreover, this exchange is worth it to Convex because they can collect a portion of the CRV rewards they get as maximum boosters
+ In the MIM example, this would be 13
+59% - 8
+09 % = 5
+5% APY
+ This fact is displayed transparently to the user in the form of a 17% fee:
+
+Convex Fees
+
+
+LPing in the Convex / Curve ecosystem
+
+
+In fact, it could be worth it to you to stake your LP tokens even if the CRV rewards you get from doing so are less than what you would get directly from Curve, because you are also receiving rewards in the form of CVX
+ So, what is CVX?
+
+CVX
+
+According to Convex’s documentation, CVX is the “the native platform token for Convex Finance
+” This alone means relatively little
+ What benefits does CVX have?
+
+Staking
+
+One thing you can do with your CVX is to stake it, i
+e
+ lock it up for a duration of your choice
+ Convex wants you to do so so that the circulating supply of CVX is lowered
+
+
+If you stake your CVX, then you will receive cvxCRV tokens as a reward
+ (We will cover cvxCRV in a subsequent section
+ I told you this was byzantine!) Recall that 5% of Convex’s 17% in fees are distributed to “CVX stakers & lockers” - this is that fee being returned to CVX stakers as a reward
+
+
+So, staking CVX may be worth it to you if the discounted sum of future cvxCRV rewards you receive exceed the current CVX price
+ Of course, both cvxCRV and CVX are volatile in price, so such a calculation may be difficult to do
+
+
+Vote Locking
+
+The other thing you can do with your CVX is to vote lock it
+ This should sound familiar - it is the exact same mechanism provided on Curve to transform CRV into veCRV
+
+
+Vote Locking on Convex Finance
+
+
+Unlike on Curve, where users can vote lock their CRV for any amount of time between 1 year and 4 years, vote locking CVX on Convex requires doing so for 16 weeks to the nearest Thursday
+ If you vote lock your CVX, you are entitled to two benefits:
+
+Greater cvxCRV rewards than you would get from staking CVX
+ For example, currently staking CVX results in a 3
+99% vAPR, while vote locking CVX results in a 4
+71% vAPR
+ This makes sense because vote locking CVX is more inconvenient than staking CVX - you don’t have a say over when you can withdraw your CVX; you have to wait at least 16 weeks
+
+
+Voting rights to determine Convex’s voting on Curve pools
+ Note that this is subject to some clamping rules to ensure the gauge weights that Convex assigns are neither too large nor too small
+ Also, the actual mechanism through which Convex implements this is an admin multi-sig wallet that translates the Convex votes into Curve votes through a manual process
+ Some might point to this as a potential point of failure
+
+
+By vote locking your CVX, you receive the right to vote on how Convex will deploy its veCRV to vote on the gauge weights of the Curve pools
+ What this has created is a “governance-on-governance” or “meta-governance” structure: you’re voting on voting
+ Thus, if you believed that veCRV was valuable for its ability to determine how Curve allocates its CRV rewards (i
+e
+ the gauge weights), it would make sense to believe that vote-locked CVX is also valuable for this reason
+
+
+CVX in the Convex / Curve ecosystem
+
+
+cvxCRV
+
+The last piece of the Convex puzzle is cvxCRV
+
+
+If you already have CRV, one thing you can do on Convex is to convert it to a different ERC-20 token called cvxCRV, and then stake it
+ There is a 1:1 relationship between CRV and cvxCRV; if you have 100 CRV, you’ll receive 100 cvxCRV
+ Once you convert your CRV to cvxCRV, you cannot convert it back; it is a one-way exchange
+
+
+When you stake your cvxCRV, you receive the following:
+
+All of the additional Curve trading fees you would have gotten from being an equivalent veCRV holder
+ Recall this comes out to 50% of Curve’s trading fees, and is paid out in Curve 3pool LP tokens
+ A portion of 10% of the Convex LP’s CRV earnings Additional CVX rewards
+
+For example, right now, staking cvxCRV leads to a 47
+57% vAPR, with 4
+46% of that coming from the Curve 3pool LP tokens, 17
+6% coming from CRV rewards, and 25
+51% coming from CVX rewards
+
+
+By converting CRV to cvxCRV, you are giving up the ability to convert it to veCRV and vote on the Curve pools directly
+ Once you stake your cvxCRV, you receive the Curve 3pool LP tokens you would have gotten as rewards as an equivalent veCRV holder, and additional rewards in the from CRV and CVX
+
+
+cvxCRV in the Convex / Curve ecosystem
+
+
+Analysis
+
+It is worth pointing out that staking/vote-locking CVX results in cvxCRV rewards, and staking cvxCRV results in CVX rewards
+ This type of circular dependency seems sketchy to me
+ If I wanted to determine the value of a token like CVX, I would take the discounted future rewards that would accrue to CVX
+ Part of those future rewards are in cvxCRV
+ To determine the value of cvxCRV, I would try to perform the same calculation
+ But part of cvxCRV’s future rewards are in CVX, leading to an infinite loop
+
+
+At the very least, this reward structure makes it difficult to reason about how to value CVX and cvxCRV relative to each other
+ Some might refer to these dynamics as “Ponzinomics
+”
+
+However, we have also established that the value proposition of CRV is a share of trading fees on the Curve platform, and the right to vote on the allocation of further CRV rewards for Curve pools
+ In this original example, too, we noted the recursive nature of benefit accrual: acquire CRV to get more CRV
+ In other words, the value of CRV is dependent on future CRV rewards, the value of which is dependent on the value of CRV
+
+
+If anybody has a mathematical model that handles these recursions / circular dependencies, please DM them to me
+
+
+Conclusion
+
+Using this strategy, Convex Finance has successfully acquired about 47% of the outstanding veCRV, making them one of the most influential forces in the Curve wars
+
+
+0x989a
+
+ corresponds to Convex Finance
+
+
+Convex participants (both CVX and cvxCRV stakers) benefit from the fees that Convex charges its Curve LP token stakers
+ These fees are disbursed to cvxCRV stakers and CVX stakers/vote-lockers in the form of base Curve rewards, cvxCRV, and CVX
+ The exact value relationship between cvxCRV and CVX is hard to untangle given the recursive nature of their valuations, but if you view Curve governance and CRV as having significant value, then Convex has prevailed in becoming the predominant DeFi protocol in the Curve Wars
+

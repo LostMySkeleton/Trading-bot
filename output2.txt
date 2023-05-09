@@ -1,0 +1,300 @@
+There is a war happening on the internet over the control of cryptographic capital
+ The participants are anonymous avatars on Twitter, the methods are obscure, and the stakes are billions of dollars
+ Welcome to the Curve Wars
+
+
+Previous Posts:
+
+From the rDPX Bull Thesis
+
+TLDR
+
+Dopex is a first-of-its-kind decentralized options exchange protocol and remarkable feat of financial engineering
+
+
+It provides Single Staking Option Vaults (SSOVs) to underwrite European-style call options settled in the underlying asset
+
+
+SSOV stakers retain their dollar value if the underlying asset price goes up; and retain the token value if the underlying asset price goes down
+ In either case, they are rewarded with option premia and DPX staking rewards
+
+
+The two tokens of the Dopex ecosystem are: DPX - a governance token with CRV-like mechanics rDPX - a rebate token with speculative “future utility” value
+
+If Dopex launches Curve pool interest rate options, it could fundamentally change the nature of the Curve Wars
+
+
+Options
+
+Since Dopex is a Decentralized Options protocol, we’ll quickly review how options work, focusing on European call options because that’s what DopEx currently supports
+
+
+A European call option is a financial derivative of an underlying asset
+ It is a contract between the seller, or call-writer, and the buyer
+ The buyer pays the seller some money (the premium)
+ In return, the buyer has the right to buy the underlying asset at a specific price (the strike price) on a specific date (expiry / maturity) from the seller
+
+
+Here’s an example
+ Let’s suppose that the price of ETH today is $3,000
+ Person A buys an ETH European call option from person B with strike price $4,000 and expiry March 1, for $200
+ That means that if the price of ETH is greater than $4,000 + $200 = $4,200 on March 1, Person A makes a profit
+ Conversely, if the price of ETH is less than $4,200, the call-writer makes a profit
+
+
+The payoff for buying (long) a call option
+ From Investopedia
+
+The payoff for selling (short) a call option
+ From Investopedia
+
+In general, the buyer of the call option is bullish on the underlying asset
+ They think the price will go up, and are securing the right to buy it at a price cheaper than the market rate at a future date
+ The seller is bearish on the underlying asset, and doesn’t think the price of the underlying will rise enough for the loss they incur on selling it to outweigh the premium
+
+
+An option whose premium is above the strike price is “in-the-money” (ITM); an option whose premium is below the strike price is “out-of-the-money” (OTM); and an option whose premium is at the strike price is “at-the-money” (ATM)
+
+
+Options are fairly sophisticated financial instruments, and can be combined in multi-leg trades to express complex views on the market
+ They can be useful for leveraging and hedging alike, and as such, are extremely popular assets: the BTC and ETH options market did $387 billion in trading volume in 2021
+
+
+DopEx
+
+As its name implies, Dopex is a decentralized options exchange: it allows users to buy European call options without a financial intermediary
+ As of this writing, Dopex supports ETH, gOHM, GMX, DPX, and rDPX as underlying assets 
+ The last two of these assets are Dopex’s tokens, which we’ll describe in a later section
+ Dopex is deployed on the Arbitrum L2, rather than on mainnet L1, resulting in reduced transaction fees
+
+
+The primary mechanism that facilitates European call option buying is known as the Single Staking Option Vault (SSOV)
+
+
+SSOV
+
+A liquidity provider can lock up their asset in an SSOV for the duration of an epoch, which typically lasts a month
+ When doing so, they specify the strike price at which they are locking up the asset, which begins at the money
+ So for ETH, which currently trades at $3,100, the strike prices might be $3,100, $4,000, $5,000, and $6,000
+
+
+In return for staking the asset, the LP receives two benefits during the lock-up epoch
+
+
+They receive the premia collected on the options for their strike, in proportion to the amount of liquidity they provided
+
+
+
+
+They receive rewards in the form of DPX tokens, in proportion to how close to ATM the strike price was
+ This makes sense because the closer to ATM the strike is, the more at-risk the LP is of the option expiring ITM, resulting in option exercise
+ So the LP needs to be compensated with more DPX
+
+
+At any point during the epoch, a buyer can purchase an option from the SSOV, so long as there is sufficient liquidity of the underlying asset
+ For example, if there are 10 ETH in the SSOV, and 10 ETH worth of options have been bought, then no new options may be issued
+ The option price is calculated using a version of the standard Black-Scholes formula
+
+
+At expiry, there are two possibilities: the option is ITM, or it is not
+
+
+ITM Option
+
+If an option is ITM, then a value called PnL for the entire SSOV is calculated according to the following formula:
+
+Here, Price refers to the price of the underlying asset at expiry, and the Amount refers to the number of options bought
+ PnL worth of the underlying asset is taken from the SSOV, and distributed to the option buyers in proportion to the number of options they bought
+ In other words, DopEx options are settled in terms of the underlying asset
+ This mechanism ensures the SSOV has sufficient liquidity to service the options if they expire ITM
+
+
+Example
+
+From user Ax in the Dopex Discord
+
+
+Suppose you deposit 1 ETH, which is currently trading at $3,750, into a $4,000 strike option
+ At expiry, the SSOV is fully utilized, meaning that all of the ETH in the vault has been used to write the call options
+ The price of ETH at that point is $4,500
+
+
+The PnL for the option corresponding to your 1 ETH will be
+
+
+
+PnL = (4500 - 4000) * 1 / 4500 = 0
+111111… ETH
+
+Thus, 0
+1111111
+
+
+ ETH will be taken from your 1 ETH contribution, and given to the option buyer
+
+
+Your loss in ETH terms is 0
+11111… ETH
+ But your loss in dollar terms is $4,000 - (0
+8888
+
+ * $4,500) = $0
+
+
+And, you receive the DPX rewards, as well as the premia paid for the options by the buyers
+
+
+ATM / OTM option
+
+If the option expires ATM or OTM, then the option is not exercised
+ Thus, you retain all of the underlying assets you staked, and reap both the premia paid on the options, as well as the DPX yield rewards
+
+
+Analysis
+
+SSOVs may provide an attractive proposition for stakers
+ If the value of the underlying asset goes up, you are guaranteed to retain the notional USD value of the asset at expiry
+ If the value of the underlying asset goes down, then you are guaranteed to retain the full quantity of the token you deposited
+ In either case, you will receive both premia and DPX farming rewards
+ This dynamic results from the division by Price in the PnL formula, which does not exist for standard equity-based options
+
+
+On the other side, users may want to use Dopex to buy calls if they want to place a leveraged bet on an asset they are bullish on
+
+
+Dopex provides some useful charts that display the potential returns for buyers and stakers, inclusive of premia and farming rewards:
+
+For Option Buyers
+
+For Stakers, Assuming a $2,800 Strike, Denominated in USD
+
+​​
+
+For Stakers, Assuming a $2,800 Strike, Denominated in the Underlying Asset
+
+Note that for stakers, the utilization ratio is key: if not all of the assets in the SSOV are written for options, then the SSOV won’t collect as much premium; worse, your assets are locked until the end of the epoch, so you can’t sell your assets even if the price is tanking
+
+
+This is where the tokenomics come into play
+
+
+Tokenomics
+
+The two tokens in the Dopex ecosystem are DPX and rDPX
+
+
+rDPX
+
+rDPX is the more confusing of the two tokens
+ Its primary function is a compensatory mechanism in the case that an “Option Pool” loses value over an epoch
+
+
+Option Pools don’t yet exist on Dopex, but we can analogize them to SSOVs
+ Consider the following scenario: An SSOV has 10 ETH at the beginning of an epoch, with the price of ETH at $3,000
+ For whatever reason, no options are bought, and what’s worse, the price of ETH has fallen to $2,000
+ The value of the SSOV at has thus decreased by $10,000, and the LPs of the SSOV had no choice because their ETH was locked
+
+
+To make up for this, the protocol mints rDPX - the Dopex “rebate” token
+ It uses a price feed from Uniswap to determine the price of rDPX, and issues 30% of the losses back to the LPs
+ So in the above case, SSOV LPs would receive $3,000 back, for a net loss of only $7,000
+
+
+As mentioned, Option Pools don’t yet exist, so rDPX isn’t used in this way today
+ Furthermore, there is no supply cap to rDPX
+ The question, then, is what gives rDPX value? What utility does it have? An article by Dopex gave the following three compelling answers:
+
+rDPX will be used as a fee requirement for future app layer additions to Dopex such as vaults
+ Dopex will support rDPX as collateral for margin borrowing
+ There will be burn mechanisms throughout the protocol to have deflationary pressure on rDPX as well
+
+Analysis
+
+The value of rDPX is necessarily speculative, because its uses do not exist yet
+ However, by gating future Dopex functionality on rDPX, Dopex has convinced the market that the token has value - it currently trades at about $244, with a market cap of ~$200M
+ One interpretation of this market cap is that the discounted future cash flows generated by the rDPX ecosystem is worth $200M
+
+
+Regardless of whether this valuation is tethered to reality, Dopex has come up with a clever mechanism for incentivizing SSOV LPs by mitigating their losses through rDPX issuance in the case that vault utilization is low
+
+
+DPX
+
+DPX is the native governance token of Dopex, with a total supply of 500,000
+ Holders can stake their DPX to capture 15% of the fees generated from option purchases in the protocol, in proportion to the amount of DPX staked
+
+
+In addition, DPX will allow holders to vote on protocol parameters, including:
+
+
+
+
+
+SSOV reward rates - which pools get further DPX rewards
+
+Rebate percentages - how much SSOV LPs are compensated for net losses (currently 30%)
+
+Strike thresholds for option chains in pools
+
+Currently, DPX trades at about $3,000, for a market cap of $515M
+
+
+From https://docs
+dopex
+io/pools/platform-flow
+
+Analysis
+
+If the above governance mechanisms sound familiar, they should – they are basically the same as Curve! The pattern of using governance tokens to determine which pools get more of the same governance tokens was one of the breakthrough inventions of the Curve protocol
+
+
+The theme of recursive self-referentiality we have noted throughout our posts does not stop there
+ As mentioned, there are rDPX and DPX SSOVs
+ Providing liquidity to them result in rewards in rDPX and DPX, and settlement of the options they issue occurs in rDPX and DPX
+ With further uses of rDPX and DPX planned down the line, Dopex may be one of the best examples of composability in DeFi
+
+
+The Curve Wars
+
+So far, none of what we have talked about relates to the Curve Wars
+ But a recent blog post by Dopex hints at a connection
+
+
+On Dopex’s roadmap is the implementation of interest rate options - that is, options whose underlying asset is the APY of a specific Curve Pool
+ (Note that the interest rate itself is not a financial asset, so the option would have to be synthetically constructed
+) If these existed, then people could express views on which pools will garner larger gauge weights via veCRV voting by buying or selling call options on them
+
+
+What capital would these interest rate SSOVs consist of? Likely some combination of the LP tokens for the pool, and CRV
+ SSOV stakers could lock up their LP tokens and an amount of CRV corresponding to the interest rate strike price
+ Buyers would then be paid out in LP tokens and CRV depending on what the actual APY ends up being according to veCRV gauge weight voting
+
+
+This would open up entirely new avenues of attack and defense for participants of the Curve Wars
+ For example, suppose a large LP of a pool is planning on issuing a large bribe for that pool, and thereby expects veCRV votes for that pool to go up
+ The LP could additionally buy a call option on the interest rate of that pool, and profit if that transpires
+ Alternatively, if the LP wants to hedge the interest rate of that pool, they could deposit their LP tokens into that SSOV and write call-options
+ The DPX they would earn from the SSOV could then subsequently be used to vote on DPX rewards for Dopex SSOVs
+
+
+In other words, the Curve Wars could spur another conflict altogether - the Dopex Wars
+
+
+Conclusion
+
+Dopex is a remarkable feat of financial engineering
+ It removes the need for a financial middleman in options writing, and features a tokenomics design that leverages the composability of DeFi
+ If Curve interest rate option vaults launch, they have the potential to completely disrupt the mechanics of the Curve Wars
+
+
+Subscribe & Share
+
+If you enjoyed this post, and would like to keep up with the latest news on on-chain culture and cryptographic capital, please subscribe and share!
+
+Share Incentivized
+
+Follow yuga
+eth on Twitter
+
+The information contained in Incentivized is not financial advice
+

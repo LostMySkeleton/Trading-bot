@@ -1,0 +1,175 @@
+There is a war happening on the internet over the control of cryptographic capital
+ The participants are anonymous avatars on Twitter, the methods are obscure, and the stakes are billions of dollars
+ Welcome to the Curve Wars
+
+
+Art by @dgenfren
+
+
+This is part 1 of N posts detailing the Curve Wars, a competition to acquire as much CRV as possible
+ This post explains what Curve is, what CRV is, what veCRV is, and why the Curve Wars are being fought
+ All of this information is publicly available
+
+
+TLDR
+
+Curve Finance is a decentralized exchange for Stablecoins worth about $2B in market cap
+
+
+CRV is the governance token of Curve Finance
+
+
+CRV is valuable because it allows holders to claim 50% of Curve’s trading fees and influence the allocation of further issued CRV
+ The more CRV you have now, the more CRV you stand to get in the future
+
+
+CRV is the scarce resource over which the Curve Wars are being fought
+
+
+Curve
+
+The central UI of Curve Finance
+ http://curve
+fi
+
+Curve Finance is an automated market maker (AMM) with a focus on Stablecoins
+ It allows users to convert one type of asset for another with low price slippage
+ For example, if you wanted to convert DAI to USDC (because USDC is redeemable for cash), you could do so via Curve’s 3pool
+ Curve can also serve as a mechanism for Foreign Exchange (ForEx) of stablecoins backed by different currencies - for example, USDC and EURT
+ Because $6
+6T worth of foreign currencies are exchanged per day in traditional markets, Curve can be seen to have enormous future potential as more countries embrace (or at least allow) DeFi
+
+
+Like other decentralized exchanges (DEXes), Curve accomplishes its functionality with pools of liquidity
+ Users, known as liquidity providers (LPs), can submit their assets to a Curve pool, and in exchange, they receive LP tokens representing their share of the pool
+ Every exchange of assets requires a small fee (around 0
+04% of the swap), denominated in one of the assets in the pool
+ This fee is paid by the user making the exchange, and disbursed to the LPs in proportion to the tokens they hold
+ LPs are incentivized to provide liquidity for Curve pools because they profit from the trading fees
+
+
+CRV
+
+In addition to trading fees, certain pools provide further incentives for LPs in the form of CRV
+ CRV is an ERC-20 governance token for the Curve Finance DAO, currently trading at about $5
+ The initial distribution of CRV occurred in August 2020 to pre-CRV LPs, employees, investors, and so forth, with more CRV unlocking over the next 5 years
+ For normal market participants, in addition to gaining CRV through LP incentives, CRV can be bought on centralized exchanges (CEXes) like Coinbase or DEXes like Uniswap
+
+
+The Curve inflation schedule
+ https://dao
+curve
+fi/inflation
+
+CRV by itself does not have much utility: you can hold it, sell it, or lend it, like any other DeFi asset
+ Although it is a governance token, it cannot be used directly to vote on proposals
+ However, once you “vote lock” your CRV to obtain veCRV, things get interesting
+
+
+veCRV
+
+veCRV stands for voting escrow CRV
+ It is not a standard ERC-20 token, because it is non-transferrable - you can’t give or trade your veCRV
+ Moreover, a user’s balance of veCRV decays linearly over time
+ A CRV holder can choose to vote lock their CRV for up to 4 years - if they vote lock 1 CRV for 1 year, they would initially have a balance of 0
+25 veCRV; if they vote lock 1 CRV for 4 years, they would initially have a balance of 1 veCRV
+ The longer you lock your CRV, the more veCRV you initially get, but your veCRV balance is constantly decreasing, unless if you choose to lock more CRV or extend your lock period
+
+
+The Incentives of Vote Locking
+
+Let’s pause for a moment to consider the “vote lock
+” Why does this convoluted mechanism exist? Why would Curve want this, and why would CRV holders want this?
+
+From Curve’s perspective, vote locking causes CRV tokens to be taken out of the circulating supply for a period of time
+ CRV thus becomes more scarce on the open market, which increases its price on the margin
+ Furthermore, because veCRV is non-transferrable, vote-lockers are committed to their position for the duration of the lock
+ This increases veCRV holders’ commitment to the protocol, both pragmatically and psychologically
+ It is a self-reinforcing cycle
+
+
+Why would CRV holders want to lock their CRV in return for veCRV? There are three concrete benefits to doing so: additional trading fees, voting, and reward boosts
+
+
+Additional Trading Fees
+
+Since September 2020, 50% of all trading fees on Curve are distributed to veCRV holders, in proportion to their veCRV balances
+ These trading fees are disbursed in the form of Curve’s 3pool LP tokens, where the 3pool consists of DAI, USDC, and USDT
+
+
+Let’s take a concrete example
+ As of this writing, there are roughly 350M total veCRV
+ Suppose I own 3
+5M veCRV, or 1% of total veCRV
+ If Curve generated $1M in trading fees this past week, then I would be entitled to $1M * 50% * 1% = $5,000 of this
+ These fees would be disbursed to me in the form of 3pool LP tokens, which I could swap for $5,000 worth of some combination of DAI, USDC, and USDT
+
+
+Voting
+
+Recall that certain Curve pools disburse rewards to LPs via CRV tokens, in addition to trading fees
+ How are these CRV rewards determined? Which pool gets how much CRV? The answer lies in the gauge weights
+
+
+CRV has a total supply of 3
+03B, which means the amount of CRV in existence will asymptotically reach that number as time goes on according to some geometrically decreasing inflation schedule
+ Currently, there are about 925M CRV in existence, with about 362M of that allocated to the community (i
+e
+ LPs)
+ About 633K CRV is emitted daily to distribute to LPs
+
+
+This 633K CRV is split across the different Curve pools according to the pools’ gauge weights
+ The larger the gauge weight, the larger proportion of the inflation that pool’s LPs receive as rewards
+ For example, right now, the MIM+3crv pool has the largest gauge weight of 41
+8%
+ This means that the LPs of the MIM+3crv pool should receive a combined 633K * 41
+8% = 265K of the daily CRV rewards distributed to the community
+
+
+How are gauge weights of the various pools determined? This is where things come full circle
+ Gauge weights are voted on by veCRV holders, in proportion to their veCRV balances
+ Participants allocate percentages of their veCRV holdings to various pools, and the sums of the veCRV balances allocated to each pool determines their gauge weights
+
+
+The Curve gauge weights starting 12/30/2021
+ https://dao
+curve
+fi/gaugeweight
+
+What this means is that veCRV, and by extension CRV, is valuable because it grants the power to allocate more CRV
+ If you are an LP for a particular pool, you will obviously want the CRV rewards to go to that pool
+ You can then convert that CRV to veCRV and vote for the gauage weight of that pool to increase your future CRV receipts
+ It is a recursive mechanism for CRV to accrue value, wherein the base layer is the trading fees that veCRV holders are entitled to
+
+
+Reward Boosts
+
+The last benefit of veCRV is just a cherry on top: it can give you a “boost” of up to 2
+5x on the pools you are LPing for
+ This is another way of reinforcing the feedback loop
+ The more veCRV you have, the more future CRV you stand to receive
+
+
+Conclusion
+
+How Curve works
+ The blue arrows represent the feedback loop
+
+
+We’ve now established why CRV is a valuable and scarce resource
+ It can be vote-locked to be converted to veCRV
+ This entitles the holder to an outstanding share of Curve’s trading fees, as well as a way of influencing the future allocation of CRV by voting on gauge weights, which determine the proportion of CRV 
+ This creates a feedback loop for CRV holders - the more CRV you lock, the more veCRV you get, which can be leveraged for more CRV in the future
+ The more money you have, the more money you make
+
+
+The flywheel effect has clearly taken hold here, catapulting Curve to a degree of importance to consider it one of the base layers of DeFi
+ In our next post, we will detail how participants of the Curve Wars are acquiring CRV through mechanisms outside of the Curve ecosystem
+
+
+Also Read
+
+“The Curve Wars Rage On”, by Knower
+
+How to Value DeFi Tokens, by Bankless

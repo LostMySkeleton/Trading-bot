@@ -1,0 +1,203 @@
+There is a war happening on the internet over the control of cryptographic capital
+ The participants are anonymous avatars on Twitter, the methods are obscure, and the stakes are billions of dollars
+ Welcome to the Curve Wars
+
+
+Previous Posts:
+
+TLDR
+
+[redacted] is an OHM fork that can be characterized as an L3 in the Curve Wars
+
+
+OHM has two principal mechanisms: Bonding issues linearly vesting OHM in return for treasury assets Staking rewards high yields in OHM, but in reality is a purely inflationary mechanism
+
+[redacted] acquires CVX and CRV through bonding, issuing BTRFLY in return
+
+
+[redacted] relies on an ethos of purposeful obfuscation to attract capital
+
+
+Recap
+
+So far, we have covered two layers of the Curve Wars stack
+ The base layer - call it L1 - is Curve Finance, with its native token CRV being the scarce resource over which the Curve Wars are fought
+ The layer above that (L2) is Convex, which tries to acquire as much CRV as possible through issuance of its own tokens, CVX and cvxCRV, which possess similar dynamics to CRV itself
+
+
+At both L1 and L2, bribes exist to incentivize voting for specific pools through the vote-escrow (ve) mechanism
+ These votes translate into greater CRV/CVX rewards, and downstream, greater liquidity in those pools
+
+
+Today, we study the layer above Convex (L3) - a layer shrouded in mystery and purposeful obfuscation
+ That layer is known as [redacted]
+
+
+[redacted] is what is known as an OHM-fork: its code, and therefore its economic structure, is copied from the OHM currency, which is a project that was released previously by OlympusDAO
+ Thus, we begin our exploration of [redacted] with an explanation of OHM
+
+
+OHM
+
+From Bankless
+
+
+In its own words, OHM aims to be a “decentralized reserve currency”: its long term goal is to become “a global unit-of-account and medium-of-exchange” through economic mechanisms that are voted on by its parent DAO
+
+
+OHM has value because it is backed by a treasury of assets that also have value
+ The treasury initially began with just the dollar-pegged stablecoin DAI, but has grown to encompass other types of assets, including LP tokens
+
+
+There are two mechanisms that define OHM - bonding, and staking
+
+
+Bonding
+
+Bonding is the process by which OlympusDAO acquires the assets for its treasury
+ It does so by issuing OHM to the user in exchange for the treasury asset
+ But like its name suggests, bonding is not an immediate process: while the user relinquishes the treasury asset immediately, OlympusDAO issues the OHM gradually (linearly) over 14 days
+
+
+This would make sense only if the user is receiving some kind of discount on the OHM itself, and indeed this is the case
+ Users get more OHM from this process than they would if they exchanged OHM for the treasury asset directly via an AMM
+ For example, the most recent FRAX bond had a 5
+3% discount
+
+
+Of course, for the notion of a “discount” to exist, there must be a way of computing the price of OHM relative to the price of the treasury asset - i
+e
+ a liquidity pool
+ This leads us to the notion of “protocol-owned liquidity
+”
+
+Protocol-Owned Liquidity
+
+Some of the treasury assets backing OHM are LP tokens involving OHM itself
+ In other words, some bonds give the user OHM (gradually over 14 days) in exchange for OHM-involved LP tokens, such as FRAX-OHM LP tokens
+
+
+Of course, FRAX-OHM LP tokens just correspond to a share of the FRAX-OHM liquidity pool, which means some combination of FRAX and OHM
+ Thus, the treasury backing OHM is actually in part just OHM itself
+ This is what “protocol-owned liquidity” (POL) refers to, because it’s the protocol (OlympusDAO’s treasury) that owns the liquidity (OHM, via LP tokens)
+
+
+OlympusDAO’s pitch is that POL is good for OHM, because it means more OHM is locked up in OlympusDAO’s treasury, thereby decreasing OHM supply and increasing OHM price
+ However, one could just as easily argue that a currency backed by itself obscures its value
+ This is a similar dynamic to one we noted in Part 2, where CVX rewards are paid in cvxCRV and cvxCRV rewards are paid in CVX
+
+
+Staking
+
+Holders of OHM can also stake their OHM to receive more OHM
+ As discussed previously, staking just means locking up OHM in a smart contract, and is a way of decreasing liquidity to increase price
+ Staked OHM can be unstaked at any time
+
+
+Every 8 hours, holders of staked OHM (sOHM) receive more OHM in proportion to a reward rate that is a parameter of the protocol and voted on by members of OlympusDAO (i
+e
+, holders of OHM)
+ For example, if I have 1 sOHM, and the reward rate is 0
+5%, then by the end of 8 hours I should expect to have 1
+005 sOHM
+
+
+Where does this additional OHM come from? OlympusDAO’s answer is that it comes from the revenue it brings in through bonding (and OlympusPro, although we won’t cover that here)
+ The more direct answer is that it comes from thin air: staking is a purely inflationary mechanism
+ This can be seen by the fact that OHM supply has increased monotonically, while OlympusDAO revenue has fluctuated wildly
+
+
+Purely inflationary OHM
+ From https://dune
+xyz/fluidsonic/Olympus-DAO
+
+Plummeting revenue of OlympusDAO
+ https://dune
+xyz/fluidsonic/Olympus-DAO
+
+Because rewards accrue so frequently, the OHM-based APY is extraordinarily high: as of this writing, the OHM staking APY is 3588%
+ Of course, this means little in terms of actual value if the price of OHM tanks, which it has from a high of ~$1300 in October 2021 to the current price of ~$200
+
+
+Analysis
+
+OHM has gained significant popularity because of its high OHM-based APYs and mimetic value
+ You have probably seen the (3, 3) meme on Crypto Twitter, which refers to the mutually beneficial prisoner’s dilemma payout that occurs if everyone cooperates according to an OlympusDAO white paper
+ Promoting sky-high APYs and a popular meme has led to the existence of many OHM forks across different blockchains
+
+
+What value OHM actually has is highly questionable
+ For example, OlympusDAO provides no method for redeeming OHM for its treasury assets - if you want to exchange OHM for something else, you have to do so through a DEX or CEX
+ Furthermore, as has been noted by Jordi Alexander, the (3, 3) ethos of “we all win if we all stake!” makes sense only if you have no defectors across all OHM stakers
+ The vector of payouts is not 2-dimensional; it is N-dimensional, where N is the number of OHM stakers
+ Thus, (3, -1, -100, -50, 100, -9, …
+) is more likely, if less memeable
+
+
+[redacted]
+
+Current [redacted] $BTRFLY staking APY is ~190,000%
+
+
+[redacted] cartel is an OHM fork that aims to accumulate as much Curve Wars-related capital as possible
+ It does so by issuing CVX and CRV bonds, and issuing its OHM-analogue token, BTFLY
+ Interestingly, [redacted] also issues OHM-BTRFLY LP bonds for its own version of protocol-owned liquidity
+ This is also beneficial for OlympusDAO, since it means OHM liquidity will be locked up in a treasury
+
+
+A feature that distinguishes [redacted] from OHm is that [redacted] aims to increase the value of its treasury through the yield-generating strategies that CVX and CRV offer
+ The documentation notes:
+
+As an example of one of the strategies employed, bonded Curve ecosystem tokens would be staked on Convex, yielding CVX on top of the native CRV rewards
+ On a weekly basis, the rewards will be claimed and staked on Convex to convert the CRV into cvxCRV
+ cvxCRV is a derivative of veCRV, which is the governance token on Curve, providing holders voting power over proposals and gauge CRV distribution
+ cvxCRV holders are also entitled to usual veCRV rewards including the governance fee distribution, airdrops, a share of 10% of the Convex LPs' boosted CRV earnings and CVX tokens
+ After the initial launch and a successful aggregation of Curve ecosystem tokens, other projects with similar gauge-like systems will be considered
+
+
+To simplify - because CRV and CVX can generate additional yield in the form of CRV, CVX, and cvxCRV through the mechanisms mentioned in previous posts, there is a plausible additional avenue for the treasury backing $BTRFLY to accrue value other than by issuing bonds
+
+
+Analysis
+
+With OlympusDAO, high APYs and the comedic-mimetic value of (3,3) were the means by which OHM became so popular
+ [redacted] also leverages high APYs, but leans more into its mysterious ethos as a way of cultivating demand
+
+
+The most obvious example of this is its name, and usage of ████ throughout its materials
+ The project invokes a similar sense of secrecy as classified government documents, lending it an air of mysterious credibility
+ The message to the reader is clear: if you bond and stake your $BTRFLY, you can be in on the secret as well
+
+
+Purposeful obfuscation as a technique for generating demand has been noted as a defining characteristic of the Curve Wars
+ [redacted] takes this to a new level in some of its writings
+ The homepage for its documentation, “The Perennial $BTFLY thesis,” is virtually unreadable because of its conspiratorial and convoluted writing style
+ Only if you had a deep understanding of the Curve Wars already would any of it make sense
+ Here’s an excerpt:
+
+Maybe [REDACTED] could become something more than what the world thinks it is now
+ If permitted to do so, $BTRFLY may be able to take the innovation that Convex proposed one iteration back, and then take a left, and in doing so shake up the concept of voting power
+ Perhaps it could find the seat at the table it’s looking for, and in doing so find something else: a pattern that could spread outside of the Curve ecosystem
+
+
+The information density in the above paragraph is so low that the only conclusion I can reach is that the writer was trying to make it sound confusing
+
+
+It is reasonable to expect that [redacted] will offer some proxy mechanism for Curve and Convex voting at some point in the future given the amount of CRV and CVX it is acquiring
+ In fact, Curve War figure and ETH whale Tetranonde has gone so far as to characterize [redacted] as OlympusDAO’s “Curve War Arm
+” Evidently, OlympusDAO owns about 20% of the outstanding BTRFLY, which gives them considerable influence over [redacted] governance
+
+
+Conclusion
+
+[redacted] is an OHM fork that can be characterized as an L3 in the Curve Wars
+ It acquires CVX and CRV through bonding, issuing BTRFLY through a linear vesting schedule in return
+ BTRFLY can be staked for high APRs, which may be attractive to novices, but in reality is a purely inflationary mechanism diluting the value of BTRFLY
+ While OlympusDAO relied on its comedic-mimetic (3,3) argument to proliferate OHM, [redacted] relies on a purposeful obfuscation of its workings and ethos in order to attract capital
+
+
+Also Read
+
+Subscribe & Share
+
+Share Incentivized

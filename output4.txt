@@ -1,0 +1,177 @@
+There is a war happening on the internet over the control of cryptographic capital
+ The participants are anonymous avatars on Twitter, the methods are obscure, and the stakes are billions of dollars
+ Welcome to the Curve Wars
+
+
+TLDR
+
+Bribes are rewards given to gauge weight voters of specific liquidity pools
+
+Bribes are a composable DeFi construct, and can be created on Curve through the Bribe tool, and Convex through Votium
+
+Bribers are making a bet that the votes gained from the bribes will attract additional liquidity because of the increased CRV rewards those votes trigger
+
+The value of this additional liquidity is worth more to the bribers than the bribes themselves
+
+The cvxcrv pool provides an illustrative example of this dynamic, because Convex wants the cvxCRV - CRV pair to be pegged at 1
+0
+
+
+Recap
+
+In our first post, we explained how CRV and its counterpart, veCRV, are the scarce resources over which the Curve Wars are being fought
+ In our second post, we did a deep-dive into Convex, the DeFi protocol built for the sole purpose of CRV accumulation, which it accomplishes by pooling both veCRV and Curve LP tokens, and disbursing rewards through its own tokens, CVX and cvxCRV
+
+
+Today, we cover another, perhaps even more straightforward method of nudging the Curve liquidity gauges in your favor - bribes
+
+
+Bribes
+
+If you are a large LP in some Curve pools, you want the gauge weights for those pools to be weighted heavily so that more CRV rewards go to you
+ Those gauge weights are determined by the votes of veCRV holders
+ You only have a certain amount of veCRV, and you want to convince other veCRV holders to vote for your pools
+
+
+How can you convince those veCRV holders to vote for your pools? One answer would be to bribe them: give them something of value if they can prove that they voted for your pool
+ This is exactly what the tool created by Andre Cronje, founder of Yearn Finance, allows
+
+
+https://bribe
+crv
+finance/
+
+There are two sides to consider: the briber, and the bribee
+
+
+Briber
+
+The tool allows a briber to specify the following three things:
+
+A Curve pool An ERC-20 token that the bribe will be denominated in The amount of the ERC-20 token for the bribe
+
+And as long as the briber’s wallet contains that amount of the token, the bribe is created
+ The bribe lasts for the next active period, which begins and ends on Thursday UTC
+
+
+Bribee
+
+veCRV holders who vote on Curve pools with bribes can claim those bribes in proportion to the amount of veCRV they spent on the vote
+
+
+As an example, let’s suppose there was a 1M SPELL bribe for the MIM Curve pool for the upcoming active period
+ Let’s say that a total of 1M veCRV votes were cast for the MIM Curve pool, and of those 1M, 10K were your votes
+ That would mean you would be able to claim 10K SPELL during the next active period for your cast votes
+
+
+Analysis
+
+Why do bribes exist? Because bribers want to incentivize veCRV holders to vote for certain pools
+ Why do they want veCRV votes to go to certain pools? There are two principal reasons for this:
+
+
+
+
+
+The bribers are large LPs in those pools, and want to maximize the amount of CRV they receive in LP rewards, OR
+
+
+
+
+
+The bribers want to attract large LPs to those pools
+ This can be the case for cryptocurrency projects that are starting out and “liquidity mining”: the bribers want to create large, tradeable pools of their cryptocurrency so that: It’s value relative to assets is clear, AND It becomes widely available in the crypto ecosystem
+
+
+
+
+The briber is making a bet that the cost of the bribe they spend will ultimately be less than the value they accrue in the form of greater liquidity in that pool, and the additional CRV LP rewards they may receive from being an LP
+
+
+If we wanted to make this a bit more formal –
+
+Let B be the value of the bribe
+
+Let A be a random variable constituting the additional liquidity that the bribe incentivizes
+
+Let C be a random variable constituting the additional CRV rewards from the veCRV votes that the bribe incentivizes
+
+Let U be the briber’s utility function
+
+Let EV denote expected value
+
+Then the briber must hold the following belief:
+
+U(B) < U(EV(A && C))
+
+Votium
+
+One lesson we learned in the previous post is that the composability of DeFi makes it relatively easy to build similar constructs on top of each other
+ Just as vote-escrowed-CRV is used to vote on Curve gauge weights, vote-locked CVX can be used to vote on Convex gauge weights
+
+
+So, it should come as no surprise that there is a bribing platform for Convex, just as there is for Curve
+ This is Votium
+
+
+The Votium UI
+
+
+https://votium
+app/
+
+Votium works much the same way that the Curve Bribe tool works
+ Bribers can specify a Curve pool, a token, and an amount to be distributed to vlCVX (vote-locked CVX) holders who vote for those pools
+ For example, currently, there is an incentive of 48,733 CVX which is the equivalent of $1,862,087
+93, for voters of the cvxcrv pool
+
+
+One additional feature that Votium provides is vote delegation: you can assign your vlCVX to Votium, and it will do the voting for you
+ According to the documentation, Votium “will try to vote for incentives optimally, giving vlCVX holders the best returns
+” Even if you delegate your votes to Votium, you always have the option of overriding them during any given epoch, so this seems like a relatively low-risk option
+
+
+Analysis
+
+It’s interesting that one of the largest current bribes is for the cvxcrv pool
+ The cvxcrv pool is the liquidity pool for the cvxCRV - CRV pair, meaning it defines the value relationship between cvxCRV and CRV and allows users to swap between the two
+ From our last post, we know that cvxCRV is just CRV that has been deposited (irreversibly) to Convex
+ Convex gains veCRV votes from this, and in return, the user gets additional rewards in the form of Curve 3pool LP tokens, CRV, and CVX
+
+
+Currently, the exchange rate between CRV/cvxCRV is 1
+0302, meaning 1 CRV costs 1
+0302 cvxCRV
+ This intuitively makes sense - if CRV and cvxCRV were not roughly equal, then nobody would be incentivized to convert their CRV for cvxCRV
+
+
+However, the cvxcrv pool is heavily imbalanced: while there are 35
+2M cvxCRV in the pool, there are only 12
+3M CRV in the pool:
+
+Curve uses the StableSwap algorithm to ensure that prices are relatively immobile even under conditions like this when there is way more supply of one token than the other
+ However, if it used a constant-product algorithm, the prices would be very dislocated - CRV would be worth much more than cvxCRV
+
+
+This gives us insight into the original bribe
+ Why would someone reward the voters of the cvxCRV - CRV pool? Because they want that pool to receive more CRV rewards, and thereby attract more LPs to the pool
+ More LPs to the pool means more CRV in the pool itself
+ Who wants to make sure that there is more CRV in the pool? Why, Convex Finance itself, of course
+ You can see that it was the “Convex Deployer” who created the bribe - that’s why they are paying in CVX
+
+
+If the cvxCRV - CRV pair were to depeg from something far afield from 1
+0, this would spell disaster for Convex, because then nobody would want to trade in their CRV for cvxCRV
+ Thus, Convex will pay the bribes necessary in the cvxCRV - CRV pool to motivate the injection of additional liquidity, and specifically, CRV
+
+
+Conclusion
+
+Bribes are a way of incentivizing voting on gauge weights, and as a second order effect, the injection of additional liquidity into pools
+ This can happen just as easily at the base layer of Curve, or a layer above on Convex through Votium
+ The parties giving the bribes are making a bet that the additional liquidity that this attracts because of the additional CRV rewards the votes engender, will be worth more to them than the bribe they are imparting
+
+
+Also Read
+
+Andre Cronje’s Bribe Medium Post
